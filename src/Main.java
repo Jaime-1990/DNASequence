@@ -1,25 +1,22 @@
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args) {
-        String dna1 = "ATGCGATACGCTTGA";
-        String dna2 = "ATGCGAATACGTGA";
-        String dna3 = "ATTAATATGTACTGA";
+        DNA dna1 = new DNA("ATGCGATACGCTTGA");
+        DNA dna2 = new DNA("ATGCGAATACGTGA");
+        DNA dna3 = new DNA("ATTAATATGTACTGA");
+        DNA dna4 = new DNA("TTAAATGTGCTGTTGA");
+        DNA dna5 = new DNA("ATGTTAGGCGTA");
 
-        String dna = dna1;
+        ArrayList<DNA> dnaArrayList = new ArrayList<>();
+        dnaArrayList.add(dna1);
+        dnaArrayList.add(dna2);
+        dnaArrayList.add(dna3);
+        dnaArrayList.add(dna4);
+        dnaArrayList.add(dna5);
 
-        int startCodonIndex = dna.indexOf("ATG");
-        int endCodonIndex = dna.indexOf("TGA");
-        System.out.println(startCodonIndex);
-        System.out.println(endCodonIndex);
-        System.out.println(dna.substring(startCodonIndex + 3, endCodonIndex).length());
-
-
-      if (startCodonIndex != -1 && endCodonIndex != -1 && (endCodonIndex -
-               startCodonIndex + 3) % 3 == 0) {
-          String protein = dna.substring(startCodonIndex + 3, endCodonIndex);
-          System.out.println("Protein: " + protein);
-      }
-      else {
-          System.out.println(" No Protein");
-      }
+        for (DNA currentDNA : dnaArrayList) {
+            System.out.println("DNA Sequence: " + currentDNA.dna + " --> Protein: " + currentDNA.protein);
+        }
     }
 }
